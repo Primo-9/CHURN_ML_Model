@@ -61,7 +61,7 @@ The goal is not only high accuracy, but high recall and probability-based risk s
 
 <img width="559" height="443" alt="image" src="https://github.com/user-attachments/assets/7b58920a-6fa4-49ef-b5c2-158a75325c73" />
 
-**PR-AUC (Precision-Recall)**
+**PR-AVG (Precision-Recall)**
 - More reliable for imbalanced data (26.5% churn rate)
 - Shows real-world performance: **68.61%** average precision across all recall levels
 - **2.59x better** than random predictions
