@@ -66,7 +66,7 @@ The goal is not only high accuracy, but high recall and probability-based risk s
 
 ### Model Selection
 
-**For Production:** Logistic Regression (0.6824 PR-AUC)
+**For Production:** Logistic Regression (0.6824 PR-AUC) 🏆
 - Only 0.54% worse than Stacking
 - 10x faster inference time
 - Fully interpretable for business stakeholders
@@ -75,7 +75,23 @@ The goal is not only high accuracy, but high recall and probability-based risk s
 - State-of-the-art performance
 - Best for high-stakes predictions
 
-# Results 🏆
+# Discussion 💬
+
+This project successfully developed a machine learning solution to predict customer churn in the telecommunications industry, achieving 88.47% ROC-AUC and 68.61% PR-AUC using a Stacking Ensemble approach. More importantly, the model demonstrates practical business value by identifying 89% of potential churners while maintaining operational feasibility.
+This model was trained for predicting churn, the churn rate for this dataset was 26.5%. Since churn is an imbalanced class, accuracy is not a realistic metric to determine the churn rate, for this reason, recall,  precision and PR-AVG were the main focus.
+
+**Stacking Ensemble** vs **Logistic Regression**: +0.16% ROC-AUC, +0.37% PR-AUC.
+**Critical Observation**: The gap between Stacking and Logistic Regression is remarkably small (0.37% in PR-AUC), while the gap to tree-based models is significantly larger (4.42-4.56%). This reveals an important insight about the nature of this dataset.
+The strong performance of LR (a simple linear model) suggests that this datasets relationship between features and churn is predominantly linear, hence the performance of LR  ≈ StackEnsemble. Realistically LR is a better choice in general because it is 10x faster and less complex while performing optimally at predicting churners.
+XGB did not perform as well because the dataset is small (7043, 33), and XGB excels with big datasets.
+RandomForest also performed poorly, RF precision drops rapidly as we increase recall, this manifests as low PR-AUC.
+
+One of the most critical findings is that the optimal threshold is NOT 0.5 (the default). At threshold = 0.2:
+- Recall: 88% (catch 369 of 374 churners)
+- Precision: 53% (369 correct of 973 predictions)
+It is much more costly to lose a customer, than to falsely contact a not-leaving customer.
+So business wise it is feasible trading the precision for a higher recall, thus saving a lot of $$$. 
+
 
 
 
