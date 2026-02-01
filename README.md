@@ -83,15 +83,27 @@ This model was trained for predicting churn, the churn rate for this dataset was
 **Stacking Ensemble** vs **Logistic Regression**: +0.16% ROC-AUC, +0.37% PR-AUC.
 **Critical Observation**: The gap between Stacking and Logistic Regression is remarkably small (0.37% in PR-AUC), while the gap to tree-based models is significantly larger (4.42-4.56%). This reveals an important insight about the nature of this dataset.
 The strong performance of LR (a simple linear model) suggests that this datasets relationship between features and churn is predominantly linear, hence the performance of LR  ≈ StackEnsemble. Realistically LR is a better choice in general because it is 10x faster and less complex while performing optimally at predicting churners.
+
 XGB did not perform as well because the dataset is small (7043, 33), and XGB excels with big datasets.
+
 RandomForest also performed poorly, RF precision drops rapidly as we increase recall, this manifests as low PR-AUC.
 
 One of the most critical findings is that the optimal threshold is NOT 0.5 (the default). At threshold = 0.2:
 - Recall: 88% (catch 369 of 374 churners)
 - Precision: 53% (369 correct of 973 predictions)
 It is much more costly to lose a customer, than to falsely contact a not-leaving customer.
-So business wise it is feasible trading the precision for a higher recall, thus saving a lot of $$$. 
+So business wise it is feasible trading the precision for a higher recall, thus saving a lot of $$$.
 
+# Conclusions 🔚
+
+1. Simpler is often Better
+2. PR-AUC > ROC-AUC for Imbalanced Data
+3. Feature Engineering > Model Complexity
+4. Threshold Optimization is Critical
+
+****The key finding****: A well-engineered Logistic Regression (0.6824 PR-AUC) delivers 99.5% of a complex Stacking Ensemble's performance (0.6861 PR-AUC) while being 10x faster and fully interpretable.
+
+This demonstrates the principle that in production ML, the best model is not always the most complex one—it's the one that best balances performance, interpretability, and operational feasibility.
 
 
 
