@@ -59,10 +59,15 @@ The goal is not only high accuracy, but high recall and probability-based risk s
 - Measures how well the model distinguishes between churners and non-churners
 - Best model: **88.47%** (excellent discrimination)
 
+<img width="559" height="443" alt="image" src="https://github.com/user-attachments/assets/7b58920a-6fa4-49ef-b5c2-158a75325c73" />
+
 **PR-AUC (Precision-Recall)**
 - More reliable for imbalanced data (26.5% churn rate)
 - Shows real-world performance: **68.61%** average precision across all recall levels
 - **2.59x better** than random predictions
+
+<img width="557" height="441" alt="image" src="https://github.com/user-attachments/assets/f9c0a9bc-eb4a-45f6-9a6f-2f46c1a26742" />
+
 
 ### Model Selection
 
@@ -80,6 +85,9 @@ The goal is not only high accuracy, but high recall and probability-based risk s
 This project successfully developed a machine learning solution to predict customer churn in the telecommunications industry, achieving 88.47% ROC-AUC and 68.61% PR-AUC using a Stacking Ensemble approach. More importantly, the model demonstrates practical business value by identifying 89% of potential churners while maintaining operational feasibility.
 This model was trained for predicting churn, the churn rate for this dataset was 26.5%. Since churn is an imbalanced class, accuracy is not a realistic metric to determine the churn rate, for this reason, recall,  precision and PR-AVG were the main focus.
 
+<img width="542" height="417" alt="image" src="https://github.com/user-attachments/assets/65cc8b68-7fd4-4d80-9127-b73386f4f518" />
+
+
 **Stacking Ensemble** vs **Logistic Regression**: +0.16% ROC-AUC, +0.37% PR-AUC.
 **Critical Observation**: The gap between Stacking and Logistic Regression is remarkably small (0.37% in PR-AUC), while the gap to tree-based models is significantly larger (4.42-4.56%). This reveals an important insight about the nature of this dataset.
 The strong performance of LR (a simple linear model) suggests that this datasets relationship between features and churn is predominantly linear, hence the performance of LR  ≈ StackEnsemble. Realistically LR is a better choice in general because it is 10x faster and less complex while performing optimally at predicting churners.
@@ -93,6 +101,9 @@ One of the most critical findings is that the optimal threshold is NOT 0.5 (the 
 - Precision: 53% (369 correct of 973 predictions)
 It is much more costly to lose a customer, than to falsely contact a not-leaving customer.
 So business wise it is feasible trading the precision for a higher recall, thus saving a lot of $$$.
+
+<img width="578" height="466" alt="image" src="https://github.com/user-attachments/assets/4b2fdae9-eee7-4f6f-9f7e-749520d05805" />
+
 
 # Conclusions 🔚
 
