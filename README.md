@@ -1,6 +1,7 @@
 # 🗂️ Data Source
 
 The data in this project was obtained from IBM Cognos Analytics.
+
 Source: https://www.ibm.com/docs/en/cognos-analytics/12.1.x?topic=samples-telco-customer-churn
 
 This sample data module tracks a fictional telco company's customer churn based on various factors.
